@@ -134,8 +134,14 @@ namespace Sort
 
         public int[] MergeSort(int[] arreglo)
         {
-            int[] responce = new int[arreglo.Length];
+            //Console.Write("[ ");
+            //foreach (var item in arreglo)
+            //{
+            //    Console.Write("{0}, ", item);
+            //}
+            //Console.WriteLine("]");
 
+            int[] responce = new int[arreglo.Length];
             responce = arreglo.ToArray();
 
             if (arreglo.Length < 2)
@@ -149,14 +155,14 @@ namespace Sort
                 int[] arrayL = new int[splitNum];
                 int[] arrayR = new int[responce.Length - splitNum];
 
-                for (int i = 0; i < arrayL.Length; i++)
+                for (int i = 0; i < splitNum; i++)
                 {
                     arrayL[i] = responce[i];
                 }
 
-                for (int i = splitNum - 1; i < arrayR.Length; i++)
+                for (int i = splitNum; i < responce.Length; i++)
                 {
-                    arrayR[i] = responce[i];
+                    arrayR[i - splitNum] = responce[i];
                 }
 
                 //Sort Splited array parts Using any of the other methods
@@ -201,5 +207,15 @@ namespace Sort
             return responce;
         }
 
+        public int[] QuickSort(int[] arreglo)
+        {
+            int[] responce = new int[arreglo.Length];
+
+            responce = arreglo.ToArray();
+
+
+
+            return responce;
+        }
     }
 }
