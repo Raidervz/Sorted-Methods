@@ -132,5 +132,67 @@ namespace Sort
             return responce;
         }
 
+        public int[] MergeSort(int[] arreglo)
+        {
+            int[] responce = new int[arreglo.Length];
+
+            responce = arreglo.ToArray();
+
+            if (arreglo.Length < 2)
+            {
+                return responce;
+            }
+            else
+            {
+                //Split Array + / - 50%
+                int splitNum = responce.Length / 2;
+                int[] arrayL = new int[splitNum];
+                int[] arrayR = new int[responce.Length - splitNum];
+
+                Array.Copy(responce, 0, arrayL, 0, arrayL.Length);
+                Array.Copy(responce, splitNum, arrayR, 0, arrayR.Length);
+
+                //Sort Splited array parts Using any of the other methods
+                arrayL = MergeSort(arrayL);
+                arrayR = MergeSort(arrayR);
+
+                //Merge splited parts to main array
+                int arrayLIndex = 0;
+                int arrayRIndex = 0;
+                int responceIndex = 0;
+
+                while (arrayLIndex < arrayL.Length && arrayRIndex < arrayR.Length)
+                {
+                    if (arrayL[arrayLIndex] <= arrayR[arrayRIndex])
+                    {
+                        responce[responceIndex] = arrayL[arrayLIndex];
+                        arrayLIndex++;
+                    }
+                    else
+                    {
+                        responce[responceIndex] = arrayR[arrayRIndex];
+                        arrayRIndex++;
+                    }
+                    responceIndex++;
+                }
+
+                while (arrayLIndex < arrayL.Length)
+                {
+                    responce[responceIndex] = arrayL[arrayLIndex];
+                    arrayLIndex++;
+                    responceIndex++;
+                }
+
+                while (arrayRIndex < arrayR.Length)
+                {
+                    responce[responceIndex] = arrayR[arrayRIndex];
+                    arrayRIndex++;
+                    responceIndex++;
+                }
+            }
+
+            return responce;
+        }
+
     }
 }

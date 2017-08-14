@@ -79,6 +79,21 @@ namespace Sort
             Console.WriteLine();
 
 
+            stopWatch.Reset();
+            Console.WriteLine();
+            stopWatch.Start();
+            result = _Methods.MergeSort(MasterIntegerArray);
+            stopWatch.Stop();
+            Console.Write("Sorted By MergeSort: [ ");
+            foreach (var item in result)
+            {
+                Console.Write("{0}, ", item);
+            }
+            Console.WriteLine("]");
+            Console.WriteLine("Time elapsed: {0}", stopWatch.Elapsed);
+            Console.WriteLine();
+
+
             Console.Read();
         }
 
