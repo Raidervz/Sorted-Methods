@@ -98,5 +98,39 @@ namespace Sort
 
             return responce;
         }
+
+        public int[] InsertionSort(int[] arreglo)
+        {
+            int[] responce = new int[arreglo.Length];
+
+            responce = arreglo.ToArray();
+
+            for (int i = 1; i < responce.Length; i++)
+            {
+                int indexA = i;
+                int indexB = i - 1;
+                
+                while (responce[indexA] < responce[indexB] && indexB > -1)
+                {
+                    int actualValue = responce[indexA];
+                    int nextValue = responce[indexB];
+
+                    responce[indexA] = nextValue;
+                    responce[indexB] = actualValue;
+
+                    indexA--;
+                    if (indexB - 1 == -1)
+                    {
+                        break;
+                    }
+                    else {
+                        indexB--;
+                    }
+                }
+            }
+
+            return responce;
+        }
+
     }
 }
