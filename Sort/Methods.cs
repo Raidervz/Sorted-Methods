@@ -201,42 +201,39 @@ namespace Sort
             return responce;
         }
 
-        public int Partition(int[] arreglo, int start, int end)
+        public int QuickSort(int[] arreglo, int startIndex, int endIndex)
         {
-            int sortElement = arreglo[end];
-            int correctSortElementIndex = start;
+            int correctSortElementIndex = startIndex;
 
-            for (int i = start; i < end; i++)
+            if (startIndex < endIndex)
             {
-                if (arreglo[i] <= sortElement)
+                int sortElement = arreglo[endIndex];
+
+                for (int i = startIndex; i < endIndex; i++)
                 {
-                    int actualValue = arreglo[i];
-                    int newValue = arreglo[correctSortElementIndex];
+                    if (arreglo[i] <= sortElement)
+                    {
+                        int actualValue = arreglo[i];
+                        int newValue = arreglo[correctSortElementIndex];
 
-                    arreglo[i] = newValue;
-                    arreglo[correctSortElementIndex] = actualValue;
-                    correctSortElementIndex++;
+                        arreglo[i] = newValue;
+                        arreglo[correctSortElementIndex] = actualValue;
+                        correctSortElementIndex++;
+                    }
                 }
+
+                int initialSortElementIndex = arreglo[endIndex];
+                int actualSortElementIndex = arreglo[correctSortElementIndex];
+
+                arreglo[endIndex] = actualSortElementIndex;
+                arreglo[correctSortElementIndex] = initialSortElementIndex;
+
+                QuickSort(arreglo, startIndex, correctSortElementIndex - 1);
+                QuickSort(arreglo, correctSortElementIndex + 1, endIndex);
+
             }
-
-            int initialSortElementIndex = arreglo[end];
-            int actualSortElementIndex = arreglo[correctSortElementIndex];
-
-            arreglo[end] = actualSortElementIndex;
-            arreglo[correctSortElementIndex] = initialSortElementIndex;
-
             return correctSortElementIndex;
 
-        }
-
-        public void QuickSort(int[] arreglo, int start, int end)
-        {
-            if (start < end)
-            {
-                int partitionIndex = Partition(arreglo, start, end);
-                QuickSort(arreglo, start, partitionIndex - 1);
-                QuickSort(arreglo, partitionIndex + 1, end);
-            }
         }
     }
 }
