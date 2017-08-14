@@ -71,6 +71,16 @@ namespace Sort
             Console.WriteLine();
 
 
+            stopWatch.Reset();
+            stopWatch.Start();
+            int[] QuickSortedMasterIntegerArray = MasterIntegerArray.ToArray();
+            _Methods.QuickSort(QuickSortedMasterIntegerArray, 0 , QuickSortedMasterIntegerArray.Length - 1);
+            stopWatch.Stop();
+            Console.WriteLine("QuickSort");
+            if (show) DisplayArray(QuickSortedMasterIntegerArray);
+            Console.WriteLine("Time elapsed: {0}", stopWatch.Elapsed);
+            Console.WriteLine();
+
             Console.Read();
         }
 

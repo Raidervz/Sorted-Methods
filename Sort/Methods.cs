@@ -12,7 +12,7 @@ namespace Sort
         public int[] VisualSort(int[] arreglo)
         {
             int[] ArregloActual = arreglo.ToArray();
-            
+
             int[] ArregloNuevo = new int[arreglo.Length];
 
             int ArregloTotal = arreglo.Length;
@@ -109,7 +109,7 @@ namespace Sort
             {
                 int indexA = i;
                 int indexB = i - 1;
-                
+
                 while (responce[indexA] < responce[indexB] && indexB > -1)
                 {
                     int actualValue = responce[indexA];
@@ -123,7 +123,8 @@ namespace Sort
                     {
                         break;
                     }
-                    else {
+                    else
+                    {
                         indexB--;
                     }
                 }
@@ -134,13 +135,6 @@ namespace Sort
 
         public int[] MergeSort(int[] arreglo)
         {
-            //Console.Write("[ ");
-            //foreach (var item in arreglo)
-            //{
-            //    Console.Write("{0}, ", item);
-            //}
-            //Console.WriteLine("]");
-
             int[] responce = new int[arreglo.Length];
             responce = arreglo.ToArray();
 
@@ -207,15 +201,42 @@ namespace Sort
             return responce;
         }
 
-        public int[] QuickSort(int[] arreglo)
+        public int Partition(int[] arreglo, int start, int end)
         {
-            int[] responce = new int[arreglo.Length];
+            int sortElement = arreglo[end];
+            int correctSortElementIndex = start;
 
-            responce = arreglo.ToArray();
+            for (int i = start; i < end; i++)
+            {
+                if (arreglo[i] <= sortElement)
+                {
+                    int actualValue = arreglo[i];
+                    int newValue = arreglo[correctSortElementIndex];
 
+                    arreglo[i] = newValue;
+                    arreglo[correctSortElementIndex] = actualValue;
+                    correctSortElementIndex++;
+                }
+            }
 
+            int initialSortElementIndex = arreglo[end];
+            int actualSortElementIndex = arreglo[correctSortElementIndex];
 
-            return responce;
+            arreglo[end] = actualSortElementIndex;
+            arreglo[correctSortElementIndex] = initialSortElementIndex;
+
+            return correctSortElementIndex;
+
+        }
+
+        public void QuickSort(int[] arreglo, int start, int end)
+        {
+            if (start < end)
+            {
+                int partitionIndex = Partition(arreglo, start, end);
+                QuickSort(arreglo, start, partitionIndex - 1);
+                QuickSort(arreglo, partitionIndex + 1, end);
+            }
         }
     }
 }
