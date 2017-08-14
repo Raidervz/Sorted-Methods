@@ -149,8 +149,15 @@ namespace Sort
                 int[] arrayL = new int[splitNum];
                 int[] arrayR = new int[responce.Length - splitNum];
 
-                Array.Copy(responce, 0, arrayL, 0, arrayL.Length);
-                Array.Copy(responce, splitNum, arrayR, 0, arrayR.Length);
+                for (int i = 0; i < arrayL.Length; i++)
+                {
+                    arrayL[i] = responce[i];
+                }
+
+                for (int i = splitNum - 1; i < arrayR.Length; i++)
+                {
+                    arrayR[i] = responce[i];
+                }
 
                 //Sort Splited array parts Using any of the other methods
                 arrayL = MergeSort(arrayL);
@@ -194,5 +201,15 @@ namespace Sort
             return responce;
         }
 
+        public int[] QuickSort(int[] arreglo)
+        {
+            int[] responce = new int[arreglo.Length];
+
+            responce = arreglo.ToArray();
+
+
+
+            return responce;
+        }
     }
 }
