@@ -26,7 +26,7 @@ namespace Sort
             result = _Methods.VisualSort(MasterIntegerArray);
             stopWatch.Stop();
             Console.WriteLine("VisualSort");
-            if (show) DisplayArray(result);
+            /*if (show)*/ DisplayArray(result);
             Console.WriteLine("Time elapsed: {0}", stopWatch.Elapsed);
             Console.WriteLine();
 

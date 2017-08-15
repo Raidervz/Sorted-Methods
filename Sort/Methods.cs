@@ -8,7 +8,6 @@ namespace Sort
 {
     public class Methods
     {
-
         public int[] VisualSort(int[] arreglo)
         {
             int[] ArregloActual = arreglo.ToArray();
