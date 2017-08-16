@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.16
+VisualStudioVersion = 15.0.26730.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sort", "Sort\Sort.csproj", "{58A66ECA-EB47-4C95-A178-61977B85354F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sort.CSharp", "Sort\Sort.CSharp.csproj", "{58A66ECA-EB47-4C95-A178-61977B85354F}"
 EndProject
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Sort.Python", "Sort.Python\Sort.Python.pyproj", "{5A3E9685-5629-44CB-A13C-BBAD4C4DB64C}"
 EndProject
@@ -22,5 +22,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3304A3C2-D144-42FC-9965-A88ED70EBA7B}
 	EndGlobalSection
 EndGlobal
